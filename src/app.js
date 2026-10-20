@@ -1,16 +1,14 @@
-const express = require('express')
+const express = require("express");
+const { userAuth } = require("./middlewares/auth");
 
 const app = express();
 
-app.use('/hello', (req, res) => {
-   res.send("Hellow from express js")
-})
+app.use("/user", userAuth);
 
+app.get("/user", (req, res, next) => {
+  res.send("hello from user");
+});
 
-app.use('/test', (req, res) => {
-    res.send('Test from express server')
-})
-
-app.listen('8888', () => {
-    console.log('Server is listening on port 8888...')
-})
+app.listen("8888", () => {
+  console.log("Server is listening on port 8888...");
+});
