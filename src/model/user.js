@@ -25,11 +25,11 @@ const userSchema = new mongoose.Schema(
 
     password: {
       type: String,
-          validate(value) {
-            if(!validator.isStrongPassword(value)) {
-                throw new Error("Enter Strong Password :" + value)
-            }
+      validate(value) {
+        if (!validator.isStrongPassword(value)) {
+          throw new Error("Enter Strong Password :" + value);
         }
+      },
     },
 
     age: {
@@ -50,11 +50,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       default:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQchi5sg7mUmbWbRUeVh1Mus0NYioqXle1nMqVk5dcUQ&s=10",
-        validate(value) {
-            if(!validator.isURL(value)) {
-                throw new Error("Please give proper url")
-            }
+      validate(value) {
+        if (!validator.isURL(value)) {
+          throw new Error("Please give proper url");
         }
+      },
     },
     skills: {
       type: [String],
